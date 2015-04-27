@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angBank')
+angular.module('gradetest')
 .factory('User', function($rootScope){
 
   function User(){

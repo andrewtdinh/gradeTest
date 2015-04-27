@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angBank')
+angular.module('gradetest')
 .controller('UsersCtrl', function($scope, $state, $window, User){
   $scope.name = $state.current.name;
 

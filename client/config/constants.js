@@ -1,4 +1,4 @@
 'use strict';
 
-angular.module('angBank')
+angular.module('gradetest')
 .constant('firebaseUrl', 'https://gradetest.firebaseio.com/');

@@ -1,20 +1,20 @@
 'use strict';
 
-angular.module('angBank')
-.factory('Account', function($rootScope, $firebaseObject, $firebaseArray, $window){
+angular.module('gradetest')
+.factory('Grade', function($rootScope, $firebaseObject, $firebaseArray, $window){
   var fbUser;
   var afUser;
 
-  function Account(){
+  function Grade(){
   }
 
-  Account.init = function(){
+  Grade.init = function(){
     fbUser = $rootScope.fbRoot.child('users/' + $rootScope.activeUser.uid);
     afUser = $firebaseObject(fbUser);
     return afUser;
   };
 
-  Account.delTransaction = function(tx, index){
+  Grade.delTransaction = function(tx, index){
     var fbTransactions = fbUser.child('accounts/' + tx.type);
     var afTransactions = $firebaseArray(fbTransactions);
     afTransactions.$loaded().then(function(){
@@ -23,7 +23,7 @@ angular.module('angBank')
     });
   };
 
-  Account.addTransaction = function(name, tx){
+  Grade.addTransaction = function(name, tx){
     var transaction = angular.copy(tx);
     transaction.date = transaction.date.getTime();
     transaction.createdAt = $window.Firebase.ServerValue.TIMESTAMP;
@@ -33,7 +33,7 @@ angular.module('angBank')
     afTransactions.$add(transaction);
   };
 
-  Account.add = function(name){
+  Grade.add = function(name){
     var names = afUser.names ? afUser.names.split(',') : [];
     names.push(name);
 

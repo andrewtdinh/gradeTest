@@ -1,1 +1,1 @@
-angular.module('angBank', ['firebase', 'ui.router']);
+angular.module('gradetest', ['firebase', 'ui.router']);

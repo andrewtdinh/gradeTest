@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angBank')
+angular.module('gradetest')
 .controller('NavCtrl', function($rootScope, $scope, $state, User){
 
   $scope.afAuth.$onAuth(function(data){
