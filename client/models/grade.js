@@ -15,7 +15,7 @@ angular.module('gradetest')
   };
 
   Grade.delTransaction = function(tx, index){
-    var fbTransactions = fbUser.child('accounts/' + tx.type);
+    var fbTransactions = fbUser.child('classes/' + tx.type);
     var afTransactions = $firebaseArray(fbTransactions);
     afTransactions.$loaded().then(function(){
       var foundTx = afTransactions[index];
@@ -28,7 +28,7 @@ angular.module('gradetest')
     transaction.date = transaction.date.getTime();
     transaction.createdAt = $window.Firebase.ServerValue.TIMESTAMP;
     transaction.name = name;
-    var fbTransactions = fbUser.child('accounts/' + tx.type);
+    var fbTransactions = fbUser.child('classes/' + tx.type);
     var afTransactions = $firebaseArray(fbTransactions);
     afTransactions.$add(transaction);
   };
@@ -41,5 +41,5 @@ angular.module('gradetest')
     return afUser.$save();
   };
 
-  return Account;
+  return Grade;
 });

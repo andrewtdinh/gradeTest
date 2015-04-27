@@ -10,3 +10,26 @@ h4 Class Creation
       .form-group
         button.btn.btn-default(type='submit', ng-click='addClass(className)') Add Class
   .cols-xs-8
+
+h4 Grade Modification
+.row
+  .col-xs-4
+    form(name='gradeForm', novalidate)
+      .form-group
+        label(for='className') Class Name
+        select.form-control#className(name='className', ng-model='grade.class')
+          option(ng-repeat='name in names') {{name}}
+          
+      .form-group
+        label(for='grade') Grade
+        input.form-control#grade(name='grade', type='number', ng-model='grade.grade')
+      .form-group
+        label(for='gradeDate') Grade Return Date
+        input.form-control#gradeDate(name='gradeDate', type='date', ng-model='grade.gradeDate')
+      .form-group
+        label(for='gradeType') Grade Type (test, quiz, hw, project, ect.)
+        input.form-control#gradeType(name='gradeType', type='text', ng-model='grade.gradeType')
+      .form-group
+        button.btn.btn-success(ng-click='changeGrade("add", grade)') Add Grade
+        button.btn.btn-danger(ng-click='changeGrade("modify", grade)') Modify Grade
+  .cols-xs-8
