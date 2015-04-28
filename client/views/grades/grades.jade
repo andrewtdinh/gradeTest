@@ -33,3 +33,23 @@ h4 Grade Modification
         button.btn.btn-success(ng-click='addGrade("add", grade)') Add Grade
         button.btn.btn-danger(ng-click='addGrade("modify", grade)') Modify Grade
   .cols-xs-8
+    
+table.table.table-striped(ng-repeat='(key, value) in afUser.classes')
+  thead
+    tr
+      th Delete
+      th Modify
+      th Class
+      th Grade Type
+      th Grade
+      th Grade Date
+      th Created At
+  tbody
+    tr(ng-repeat='grade in afUser.classes[key]')
+      td: button.btn.btn-danger.btn-xs(ng-click='delGrade(grade, $index)') Delete
+      td: button.btn.btn-warning.btn-xs(ng-click='modGrade(grade, $index)') Modify
+      td {{grade.class}}
+      td {{grade.gradeType}}
+      td {{grade.grade}}
+      td {{grade.gradeDate | date: 'yyyy-MM-dd HH:mm.ss'}}
+      td {{grade.createdAt | date: 'yyyy-MM-dd HH:mm.ss'}}
