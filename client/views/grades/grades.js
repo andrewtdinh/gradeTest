@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('gradetest')
-.controller('GradesCtrl', function($scope, Grade){
+.controller('GradesCtrl', function($scope, Grade, $state){
+  $scope.name = $state.current.name;
   var afUser = $scope.afUser = Grade.init();
   afUser.$loaded().then(syncNames);
 
