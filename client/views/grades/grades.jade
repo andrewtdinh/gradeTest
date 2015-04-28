@@ -30,6 +30,6 @@ h4 Grade Modification
         label(for='gradeType') Grade Type (test, quiz, hw, project, ect.)
         input.form-control#gradeType(name='gradeType', type='text', ng-model='grade.gradeType')
       .form-group
-        button.btn.btn-success(ng-click='changeGrade("add", grade)') Add Grade
-        button.btn.btn-danger(ng-click='changeGrade("modify", grade)') Modify Grade
+        button.btn.btn-success(ng-click='addGrade("add", grade)') Add Grade
+        button.btn.btn-danger(ng-click='addGrade("modify", grade)') Modify Grade
   .cols-xs-8

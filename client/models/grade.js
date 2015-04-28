@@ -23,14 +23,16 @@ angular.module('gradetest')
     });
   };
 
-  Grade.addTransaction = function(name, tx){
-    var transaction = angular.copy(tx);
-    transaction.date = transaction.date.getTime();
-    transaction.createdAt = $window.Firebase.ServerValue.TIMESTAMP;
-    transaction.name = name;
-    var fbTransactions = fbUser.child('classes/' + tx.type);
-    var afTransactions = $firebaseArray(fbTransactions);
-    afTransactions.$add(transaction);
+  Grade.addTransaction = function(action, grade){
+    if (action === 'add'){
+      var transaction = angular.copy(grade);
+      transaction.gradeDate = transaction.gradeDate.getTime();
+      transaction.createdAt = $window.Firebase.ServerValue.TIMESTAMP;
+      transaction.name = name;
+      var fbTransactions = fbUser.child('classes/' + grade.class);
+      var afTransactions = $firebaseArray(fbTransactions);
+      afTransactions.$add(transaction);
+    }else {}
   };
 
   Grade.add = function(name){

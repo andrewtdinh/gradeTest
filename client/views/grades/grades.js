@@ -14,8 +14,8 @@ angular.module('gradetest')
     Grade.delTransaction(tx, index);
   };
 
-  $scope.addGrade = function(name, tx){
-    Grade.addTransaction(name, tx);
+  $scope.addGrade = function(action, grade){
+    Grade.addTransaction(action, grade);
     $scope.tx = {};
   };
 
